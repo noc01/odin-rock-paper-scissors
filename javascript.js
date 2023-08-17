@@ -1,6 +1,6 @@
 function getComputerChoice() {
     let intChoice = Math.floor(Math.random() * 3) + 1;
-    let choice;
+    let choice;  
     if (intChoice == 1) {
         choice = "Rock";
     } else if (intChoice == 2) {
@@ -37,47 +37,18 @@ function playRound(playerSelection, computerSelection) {
     return winner;
 }
 function game() {
-    let scorePlayer;
-    let scoreComputer;
-    let playerSelection = prompt("Rock Paper Scissors: ").toUpperCase();
-    let computerSelection =  getComputerChoice().toUpperCase();
-    let winner = playRound(playerSelection, computerSelection);
-    if (winner == playerSelection) {
-        scorePlayer += 1;
-    } else if (winner == computerSelection) {
-        scoreComputer += 1;
-    }
-    playerSelection = prompt("Rock Paper Scissors: ").toUpperCase();
-    computerSelection =  getComputerChoice().toUpperCase();
-    winner = playRound(playerSelection, computerSelection);
-    if (winner == playerSelection) {
-        scorePlayer += 1;
-    } else if (winner == computerSelection) {
-        scoreComputer += 1;
-    }
-    playerSelection = prompt("Rock Paper Scissors: ").toUpperCase();
-    computerSelection =  getComputerChoice().toUpperCase();
-    winner = playRound(playerSelection, computerSelection);
-    if (winner == playerSelection) {
-        scorePlayer += 1;
-    } else if (winner == computerSelection) {
-        scoreComputer += 1;
-    }
-    playerSelection = prompt("Rock Paper Scissors: ").toUpperCase();
-    computerSelection =  getComputerChoice().toUpperCase();
-    winner = playRound(playerSelection, computerSelection);
-    if (winner == playerSelection) {
-        scorePlayer += 1;
-    } else if (winner == computerSelection) {
-        scoreComputer += 1;
-    }
-    playerSelection = prompt("Rock Paper Scissors: ").toUpperCase();
-    computerSelection =  getComputerChoice().toUpperCase();
-    winner = playRound(playerSelection, computerSelection);
-    if (winner == playerSelection) {
-        scorePlayer += 1;
-    } else if (winner == computerSelection) {
-        scoreComputer += 1;
+    let scorePlayer = 0;
+    let scoreComputer = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Rock Paper Scissors: ").toUpperCase();
+        let computerSelection =  getComputerChoice().toUpperCase();
+        let winner = playRound(playerSelection, computerSelection);
+        if (winner == playerSelection) {
+            scorePlayer += 1;
+        } else if (winner == computerSelection) {
+            scoreComputer += 1;
+        }
     }
     
     if (scorePlayer > scoreComputer) {
